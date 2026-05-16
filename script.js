@@ -4,3 +4,7 @@ const selectStyle = inputStyle + " appearance-auto";
 document.querySelectorAll(".field").forEach(field => {
       field.className = field.classList.contains("select-field") ? selectStyle : inputStyle;
     });
+
+
+document.getElementById("searchBtn").addEventListener("click", searchJobs);
+document.getElementById("customBoard").addEventListener("input", toggleBoardDropdown);
