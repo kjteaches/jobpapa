@@ -8,3 +8,19 @@ document.querySelectorAll(".field").forEach(field => {
 
 document.getElementById("searchBtn").addEventListener("click", searchJobs);
 document.getElementById("customBoard").addEventListener("input", toggleBoardDropdown);
+
+function toggleBoardDropdown() {
+  const boardSelect = document.getElementById("board");
+  const hasCustomDomain =
+    document.getElementById("customBoard").value.trim() !== "";
+
+  boardSelect.disabled = hasCustomDomain;
+
+  boardSelect.classList.toggle("opacity-50", hasCustomDomain);
+  boardSelect.classList.toggle("cursor-not-allowed", hasCustomDomain);
+}
+
+
+function getValue(id) {
+    return document.getElementById(id).value.trim();
+}
