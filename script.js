@@ -20,7 +20,56 @@ function toggleBoardDropdown() {
   boardSelect.classList.toggle("cursor-not-allowed", hasCustomDomain);
 }
 
+function searchJobs() {
+      const role = getValue("role");
+      const timePosted = getValue("timePosted");
+      const exactMatch = document.getElementById("exactMatch").checked;
+      const remoteOnly = document.getElementById("remoteOnly").checked;
+      const customBoard = getValue("customBoard").replace(/^https?:\/\//, "");
+
+      if (!role) {
+        alert("Enter a role.");
+        return;
+      }
+
+      if (customBoard && !isValidDomain(customBoard)) {
+        alert("Custom board domain looks invalid. Enter a domain like myboard.com or myboard.com/jobs.");
+        return;
+      }
+
+      const board = customBoard || getValue("board");
+      const query = buildSearchQuery({ role, board, exactMatch, remoteOnly, exclude: getValue("exclude") });
+      const url = buildGoogleUrl(query, timePosted);
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+
 
 function getValue(id) {
     return document.getElementById(id).value.trim();
 }
+
+ function buildSearchQuery({ role, board, exactMatch, remoteOnly, exclude }) {
+      const sanitizedRole = role.replace(/"/g, "");
+      const roleQuery = exactMatch ? `"${sanitizedRole}"` : sanitizedRole;
+      const remoteQuery = remoteOnly ? "(remote OR distributed)" : "";
+      const excludeQuery = formatExcludedWords(exclude);
+
+      return `
+        ${roleQuery}
+        site:${board}
+        (job OR careers OR apply)
+        ${remoteQuery}
+        ${excludeQuery}
+      `
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    function formatExcludedWords(excludeText) {
+      return excludeText
+        .split(",")
+        .map(word => word.trim())
+        .filter(Boolean)
+        .map(word => `-${word}`)
+        .join(" ");
+    }
