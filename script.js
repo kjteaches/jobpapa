@@ -48,28 +48,36 @@ function getValue(id) {
     return document.getElementById(id).value.trim();
 }
 
- function buildSearchQuery({ role, board, exactMatch, remoteOnly, exclude }) {
-      const sanitizedRole = role.replace(/"/g, "");
-      const roleQuery = exactMatch ? `"${sanitizedRole}"` : sanitizedRole;
-      const remoteQuery = remoteOnly ? "(remote OR distributed)" : "";
-      const excludeQuery = formatExcludedWords(exclude);
+function buildSearchQuery({ role, board, exactMatch, remoteOnly, exclude }) {
+    const sanitizedRole = role.replace(/"/g, "");
+    const roleQuery = exactMatch ? `"${sanitizedRole}"` : sanitizedRole;
+    const remoteQuery = remoteOnly ? "(remote OR distributed)" : "";
+    const excludeQuery = formatExcludedWords(exclude);
 
-      return `
-        ${roleQuery}
-        site:${board}
-        (job OR careers OR apply)
-        ${remoteQuery}
-        ${excludeQuery}
-      `
-        .replace(/\s+/g, " ")
-        .trim();
-    }
+    return `
+      ${roleQuery}
+      site:${board}
+      (job OR careers OR apply)
+      ${remoteQuery}
+      ${excludeQuery}
+    `
+      .replace(/\s+/g, " ")
+      .trim();
+  }
 
-    function formatExcludedWords(excludeText) {
-      return excludeText
-        .split(",")
-        .map(word => word.trim())
-        .filter(Boolean)
-        .map(word => `-${word}`)
-        .join(" ");
-    }
+function formatExcludedWords(excludeText) {
+  return excludeText
+    .split(",")
+    .map(word => word.trim())
+    .filter(Boolean)
+    .map(word => `-${word}`)
+    .join(" ");
+}
+
+function isValidDomain(value) {
+  return /^[\w.-]+(\/[\w./-]*)?$/.test(value);
+}
+
+function buildGoogleUrl(query, timePosted) {
+  return `https://www.google.com/search?q=${encodeURIComponent(query)}&tbs=${timePosted}`;
+}
