@@ -8,73 +8,72 @@
   <body
     class="min-h-screen flex items-center justify-center p-6 bg-[#3D405B] text-[#F4F1DE]"
   >
-    <main>
-      <form
-        class="w-full max-w-md rounded-2xl p-6 space-y-4 shadow-2xl bg-[#2F3247] border border-[#81B29A]"
+    <main
+      class="w-full max-w-md rounded-2xl p-6 space-y-4 shadow-2xl bg-[#2F3247] border border-[#81B29A]"
+    >
+      <h1 class="text-2xl font-bold">Find your next role</h1>
+      <input id="role" placeholder="Job title or role" class="field" />
+      <label class="flex items-center gap-3 text-sm">
+        <input
+          id="exactMatch"
+          type="checkbox"
+          checked
+          class="accent-[#81B29A]"
+        />
+        Match exact phrase
+      </label>
+      <input
+        id="exclude"
+        placeholder="Exclude words, separated by commas"
+        class="field"
+      />
+      <select id="board" class="field select-field">
+        <option value="boards.greenhouse.io">Greenhouse</option>
+        <option value="remotive.com">Remotive</option>
+        <option value="jobs.smartrecruiters.com">SmartRecruiters</option>
+        <option value="bamboohr.com">BambooHR</option>
+        <option value="jobs.ashbyhq.com">Ashby</option>
+        <option value="jobs.lever.co">Lever</option>
+        <option value="apply.workable.com">Workable</option>
+        <option value="remoteok.com">Remote OK</option>
+        <option value="weworkremotely.com">We Work Remotely</option>
+        <option value="wellfound.com/jobs">Wellfound</option>
+        <option value="startup.jobs">Startup Jobs</option>
+        <option value="devreljob.com">DevRel Jobs</option>
+        <option value="remoterocketship.com">Remote Rocketship</option>
+      </select>
+
+      <div class="text-center text-sm font-semibold text-[#81B29A]">OR</div>
+
+      <input
+        id="customBoard"
+        placeholder="Search another job board"
+        class="field"
+      />
+      <select id="timePosted" class="field select-field">
+        <option value="qdr:h12">Past 12 hours</option>
+        <option value="qdr:d" selected>Past 24 hours</option>
+        <option value="qdr:d3">Past 3 days</option>
+        <option value="qdr:w">Past week</option>
+        <option value="qdr:w2">Past 2 weeks</option>
+        <option value="qdr:m">Past month</option>
+      </select>
+      <label class="flex items-center gap-3 text-sm">
+        <input
+          id="remoteOnly"
+          type="checkbox"
+          checked
+          class="accent-[#81B29A]"
+        />
+        Remote only
+      </label>
+      <button
+        id="searchBtn"
+        class="w-full p-3 rounded-lg font-bold transition bg-[#E07A5F] hover:bg-[#d96d51] text-[#F4F1DE]"
+        type="submit"
       >
-        <h1 class="text-2xl font-bold">Find your next role</h1>
-        <input id="role" placeholder="Job title or role" class="field" />
-        <label class="flex items-center gap-3 text-sm">
-          <input
-            id="exactMatch"
-            type="checkbox"
-            checked
-            class="accent-[#81B29A]"
-          />
-          Match exact phrase
-        </label>
-        <input
-          id="exclude"
-          placeholder="Exclude words, separated by commas"
-          class="field"
-        />
-        <select id="board" class="field select-field">
-          <option value="boards.greenhouse.io">Greenhouse</option>
-          <option value="remotive.com">Remotive</option>
-          <option value="jobs.smartrecruiters.com">SmartRecruiters</option>
-          <option value="bamboohr.com">BambooHR</option>
-          <option value="jobs.ashbyhq.com">Ashby</option>
-          <option value="jobs.lever.co">Lever</option>
-          <option value="apply.workable.com">Workable</option>
-          <option value="remoteok.com">Remote OK</option>
-          <option value="weworkremotely.com">We Work Remotely</option>
-          <option value="wellfound.com/jobs">Wellfound</option>
-          <option value="startup.jobs">Startup Jobs</option>
-          <option value="devreljob.com">DevRel Jobs</option>
-          <option value="remoterocketship.com">Remote Rocketship</option>
-        </select>
-
-        <div class="text-center text-sm font-semibold text-[#81B29A]">OR</div>
-
-        <input
-          id="customBoard"
-          placeholder="Search another job board"
-          class="field"
-        />
-        <select id="timePosted" class="field select-field">
-          <option value="qdr:h12">Past 12 hours</option>
-          <option value="qdr:d" selected>Past 24 hours</option>
-          <option value="qdr:d3">Past 3 days</option>
-          <option value="qdr:w">Past week</option>
-          <option value="qdr:w2">Past 2 weeks</option>
-          <option value="qdr:m">Past month</option>
-        </select>
-        <label class="flex items-center gap-3 text-sm">
-          <input
-            id="remoteOnly"
-            type="checkbox"
-            checked
-            class="accent-[#81B29A]"
-          />
-          Remote only
-        </label>
-        <button
-          id="searchBtn"
-          class="w-full p-3 rounded-lg font-bold transition bg-[#E07A5F] hover:bg-[#d96d51] text-[#F4F1DE]"
-        >
-          Search
-        </button>
-      </form>
+        Search
+      </button>
       <footer
         class="fixed bottom-0 inset-x-0 text-center text-sm py-2 border-t bg-[#2F3247] border-[#81B29A] text-[#F4F1DE]"
       >
