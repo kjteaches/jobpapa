@@ -8,7 +8,10 @@ document.querySelectorAll(".field").forEach((field) => {
     : inputStyle;
 });
 
-document.getElementById("searchBtn").addEventListener("click", searchJobs);
+document.getElementById("searchForm").addEventListener("submit", (e) => {
+  e.preventDefault();
+  searchJobs();
+});
 document
   .getElementById("customBoard")
   .addEventListener("input", toggleBoardDropdown);
