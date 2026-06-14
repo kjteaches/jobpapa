@@ -26,7 +26,7 @@ This started life as a personal Python script back in 2021 that I passed around 
 | Changing or adding anything meant editing the source file. This wasn't ideal for non-techies and/or anyone working without an IDE that would flag/fix small errors for them to simplify the process | Changes made directly in the UI |
 | Each search checked every board at once, and it could be frustrating to go through all the results across multiple tabs | Searches run for one board at a time |
 | It could only handle one search per instance | Unlimited searches |
-| The new-instance tag sometimes caused profile lock errors if Firefox was already running | Not any more <3 |
+| The `new-instance` tag sometimes caused profile lock errors if Firefox was already running | Not any more <3 |
   
 
 Plus other quality of life improvements:
