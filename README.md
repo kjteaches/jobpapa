@@ -18,7 +18,7 @@ This started life as a personal Python script back in 2021 that I passed around 
 
 
 
-| Original script | Web version |
+|Original script |Web version |
 | --- | --- |
 | Required user to install Python and run it via the terminal | Doesn't |
 | OS-dependant | Isn't |
@@ -38,10 +38,10 @@ Plus other quality of life improvements:
 ## Using the web app
 
 It's [hosted on GitHub Pages](https://kjteaches.github.io/jobpapa/), where anyone can access it for free. Just type in a role, pick a board, and hit Search.
+
 ![jobpapa homepage](screenshot.png)
 
 That should be enough and I hope I've made the rest intuitive, but let's cover it just in case:
-
 
 -  **Match exact phrase** keeps multi-word roles like `llama wrangler` together
 -  **Exclude words** filters out anything you don't want to see, comma-separated, like `senior, onsite`
