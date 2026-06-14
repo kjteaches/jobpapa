@@ -37,10 +37,10 @@ Plus other quality of life improvements:
   
 ## Using the web app
 
-It's hosted on GitHub Pages, where anyone can access it for free. Just type in a role, pick a board, and hit Search.
+It's [hosted on GitHub Pages](https://kjteaches.github.io/jobpapa/), where anyone can access it for free. Just type in a role, pick a board, and hit Search.
+![jobpapa homepage](screenshot.png)
 
 That should be enough and I hope I've made the rest intuitive, but let's cover it just in case:
-
 
 
 -  **Match exact phrase** keeps multi-word roles like `llama wrangler` together
@@ -62,7 +62,7 @@ python  job_trawler.py
 
   
 
-Set the role you're after at the top of the file:
+Set what you're after at the top of the file:
 
   
 
@@ -78,7 +78,7 @@ exclude = ["senior", "onsite"]
 
 ```
 
-One thing to note: it uses the macOS `open` command to launch Firefox, so if you're on Windows or Linux you'll need to tweak the `webbrowser.get(...)` line first.
+**Please note:** it uses the macOS `open` command to launch Firefox, so if you're on Windows or Linux you'll need to tweak the `webbrowser.get(...)` line first or not use it at all.
 
 ## Credits
 
